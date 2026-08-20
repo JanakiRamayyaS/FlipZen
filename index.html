@@ -27,6 +27,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Streamlit Custom Component Handshake -->
+    <script>
+      (function() {
+        function notifyStreamlit() {
+          try {
+            if (window.parent) {
+              window.parent.postMessage({ isStreamlitMessage: true, type: "streamlit:componentReady", apiVersion: 1 }, "*");
+              window.parent.postMessage({ isStreamlitMessage: true, type: "streamlit:setFrameHeight", height: window.innerHeight || 900 }, "*");
+            }
+          } catch(e) {}
+        }
+        notifyStreamlit();
+        window.addEventListener("DOMContentLoaded", notifyStreamlit);
+        window.addEventListener("load", notifyStreamlit);
+      })();
+    </script>
   </head>
   <body class="bg-[#0A0B0E] text-gray-100 antialiased selection:bg-blue-500 selection:text-white">
     <div id="root"></div>

@@ -9,7 +9,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# Custom CSS to hide default Streamlit headers, footers and margins
+# Custom CSS to hide default Streamlit chrome
 st.markdown(
     """
     <style>
@@ -33,11 +33,11 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-INDEX_PATH = os.path.join(os.path.dirname(__file__), "dist", "index.html")
+# Declare component pointing directly to the compiled dist build folder
+BUILD_DIR = os.path.join(os.path.dirname(__file__), "dist")
 
-if os.path.exists(INDEX_PATH):
-    with open(INDEX_PATH, "r", encoding="utf-8") as f:
-        html_content = f.read()
-    components.html(html_content, height=950, scrolling=True)
+if os.path.exists(BUILD_DIR):
+    flipzen_component = components.declare_component("flipzen", path=BUILD_DIR)
+    flipzen_component(key="flipzen_app")
 else:
-    st.error("Build file `dist/index.html` not found. Please run `npm run build` first.")
+    st.error("Build directory `dist/` not found. Please run `npm run build` first.")

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { SettingsProvider } from './context/SettingsContext';
 import { Home } from './pages/Home';
 import { ClockPage } from './pages/ClockPage';

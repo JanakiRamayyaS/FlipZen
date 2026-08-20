@@ -16,8 +16,11 @@ export const ScreensaverMode: React.FC = () => {
   const [isShortcutsOpen, setIsShortcutsOpen] = useState(false);
   const [showToastHint, setShowToastHint] = useState(true);
 
-  // Auto-hide initial toast hint after 4 seconds
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  // Auto-hide initial toast hint after 4 seconds and focus container
   useEffect(() => {
+    containerRef.current?.focus();
     const timer = setTimeout(() => {
       setShowToastHint(false);
     }, 4000);
@@ -48,7 +51,9 @@ export const ScreensaverMode: React.FC = () => {
 
   return (
     <div
-      className="relative w-screen h-screen overflow-hidden select-none flex items-center justify-center transition-colors duration-700"
+      ref={containerRef}
+      tabIndex={0}
+      className="relative w-screen h-screen overflow-hidden select-none flex items-center justify-center transition-colors duration-700 outline-none"
       style={{
         ...getBgStyle(),
         filter: `brightness(${settings.brightness})`,

@@ -9,7 +9,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# Custom CSS to hide default Streamlit chrome
+# Custom CSS to hide default Streamlit chrome & enforce full viewport width/height
 st.markdown(
     """
     <style>
@@ -25,7 +25,7 @@ st.markdown(
         }
         iframe {
             width: 100% !important;
-            height: 100vh !important;
+            min-height: 95vh !important;
             border: none !important;
         }
     </style>
@@ -33,11 +33,10 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Declare component pointing directly to the compiled dist build folder
 BUILD_DIR = os.path.join(os.path.dirname(__file__), "dist")
 
 if os.path.exists(BUILD_DIR):
     flipzen_component = components.declare_component("flipzen", path=BUILD_DIR)
-    flipzen_component(key="flipzen_app")
+    flipzen_component(key="flipzen_app", height=950)
 else:
     st.error("Build directory `dist/` not found. Please run `npm run build` first.")

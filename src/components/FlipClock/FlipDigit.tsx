@@ -35,12 +35,12 @@ export const FlipDigit: React.FC<FlipDigitProps> = ({ digit, size = 'lg', label 
     }
   }, [digit, currentDigit, settings.animation]);
 
-  // Size sizing maps
+  // Responsive size mapping
   const sizeClasses = {
-    sm: 'w-14 h-20 text-3xl md:w-20 md:h-28 md:text-5xl lg:w-24 lg:h-36 lg:text-6xl',
-    md: 'w-20 h-28 text-5xl md:w-28 md:h-40 md:text-7xl lg:w-36 lg:h-52 lg:text-8xl',
-    lg: 'w-24 h-36 text-6xl md:w-36 md:h-52 md:text-8xl lg:w-48 lg:h-64 lg:text-9xl',
-    xl: 'w-28 h-40 text-7xl md:w-44 md:h-60 md:text-[10rem] lg:w-56 lg:h-80 lg:text-[12rem]',
+    sm: 'w-10 h-16 text-2xl sm:w-14 sm:h-20 sm:text-3xl md:w-18 md:h-26 md:text-4xl lg:w-22 lg:h-32 lg:text-5xl',
+    md: 'w-14 h-20 text-3xl sm:w-20 sm:h-28 sm:text-5xl md:w-26 md:h-36 md:text-6xl lg:w-32 lg:h-44 lg:text-7xl',
+    lg: 'w-16 h-24 text-4xl sm:w-24 sm:h-34 sm:text-6xl md:w-32 md:h-46 md:text-7xl lg:w-40 lg:h-56 lg:text-8xl',
+    xl: 'w-20 h-28 text-5xl sm:w-28 sm:h-40 sm:text-7xl md:w-38 md:h-52 md:text-8xl lg:w-48 lg:h-64 lg:text-9xl',
   };
 
   const cardStyle: React.CSSProperties = {

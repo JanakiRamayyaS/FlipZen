@@ -23,9 +23,9 @@ export const FlipClock: React.FC<FlipClockProps> = ({ showLabels = false }) => {
   const s2 = timeState.seconds.charAt(1);
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 transition-all duration-500">
+    <div className="flex flex-col items-center justify-center p-2 sm:p-4 w-full max-w-full overflow-hidden transition-all duration-500">
       {/* Clock Digits Main Row */}
-      <div className="flex items-center justify-center gap-1 md:gap-3 flex-wrap">
+      <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-3 flex-nowrap max-w-full">
         {/* Hours Group */}
         <div className="flex items-center gap-1 md:gap-2">
           <FlipDigit digit={h1} size={settings.clockScale} label={showLabels ? 'HOURS' : undefined} />
